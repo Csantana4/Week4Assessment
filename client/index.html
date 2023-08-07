@@ -4,33 +4,67 @@
     <link rel="stylesheet" href="./style.css">
     <title>Back End Assessment</title>
   </head>
-  <header>
-  <h2>Whats great about you!</h2>
-</header>
-    <form class = "card" id="positive-attributes">
-      <h3>Add positivity!</h3>
-      <input type="text" id ="attributes" placeholder="New Attributes"/>
-      <button>Add</button>
-    </form>
-    <h3>compliments</h3>
-    <ul id="attribute-list">
-
-    </ul>
-
-  
-
-   
-
-
+  <body class="container">
     <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton"> Get a fortune</button>
-
-
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <button id="fortuneButton">Get a Fortune</button>
+    
     
    
+    <h2>My Attributes</h2>
+    <ul id="attribute-list">
+      <li>Hard worker</li>
+      <li>Resilient</li>
+      <li>Quick witted</li>
+      <li>Determination</li>
+      
+    </ul>
+    <form class ="card" id="attribute-form">
+      <h2>Add a attribute!</h2>
+      <input type="text" id="attribute-input" placeholder="New Attribute">
+      <button>Add</button>
+    </form>
+
+    <div>
+      <h2>Motivation</h2>
+      <form id="checklist">
+        <li>
+        <input type="checkbox"> Family
+      </li>
+      <li>
+        <input type="checkbox"> Friends
+      </li>
+      <li>
+        <input type="checkbox"> Kids
+      </li>
+      <li>
+        <input type="checkbox"> House
+      </li>
+      <li>
+        <input type="checkbox"> Car
+      </li>
+        
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Progress Tracker</h2>
+
+      <h4 id ="gym number">0</h4>
+      <button id="gym">Gym</button>
+      <h4 id ="study number">0</h4>
+      <button id="study">Study</button>
+      <h4 id ="fun number">0</h4>
+      <button id="fun">Fun</button>
+  </div>
+    
+
+
+
+
+    <!-- <script src="'../node_modules/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     
   </body>
 </html>
+
