@@ -8,3 +8,37 @@
     box-sizing: border-box;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
   }
+  input {
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+}
+
+ul {
+    font-size: 24px;
+    width: 100%;
+}
+
+li {
+    cursor: pointer;
+}
+  
+.checked {
+    color: gray;
+    text-decoration: line-through;
+}
+  
+.hide {
+    visibility: hidden;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-weight: bold;
+    background: rgb(14, 0, 0);
+    color: white;
+    margin-left: 20px;
+    vertical-align: middle;
+}

@@ -13,6 +13,10 @@ const studyNum= document.getElementById
 const funNum= document.getElementById
 ('fun number')
 
+let errandBtn= document.querySelector('#input-btn')
+
+
+
 const attForm= document.getElementById('attribute-form')
 const attInput= document.getElementById('attribute-input')
 const attList= document.getElementById('attribute-list')
@@ -76,9 +80,36 @@ const handleSubmit= (event) =>{
         .catch((error)=>{
             console.error(error)
         })
+        
+        
+    }
     
-    
+    function addErrand(event){
+        
+    event.preventDefault()
+    let errands = document.createElement('span')
+    let inputFeild = document.querySelector('input')
+    let list = document.querySelector('ul')
+    let errand = document.createElement('li')
+    errands.textContent = inputFeild.value
+    list.append(errand)
+    errand.appendChild(errands)
+    let deleteBtn = document.createElement('button')
+    deleteBtn.textContent = ('x')
+    deleteBtn.addEventListener('click', deleteErrand)
+    errand.appendChild(deleteBtn) 
+    inputFeild.value=''
 }
+
+document.querySelector('form').addEventListener('submit', addErrand)
+function deleteErrand(event){
+    event.target.parentNode.remove() 
+    message.textContent =('Errand Removed')
+}
+
+
+
+
 
 
 complimentBtn.addEventListener('click', getCompliment)
@@ -88,3 +119,6 @@ attForm.addEventListener('submit',handleSubmit)
 gymBtn.addEventListener('click', addGym)
 studyBtn.addEventListener('click', addStudy)
 funBtn.addEventListener('click', addFun)
+
+errandBtn.addEventListener('click', crossOffErrand)
+

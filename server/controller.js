@@ -4,12 +4,9 @@ module.exports={
         console.log(req.body)
         attributes.push(req.body.newAtt)
         res.status(200).send(attributes)
-    }
-}
+    },
 
-module.exports = {
-
-    getCompliment: (req, res) => {
+getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
       
         // choose random compliment
@@ -18,13 +15,12 @@ module.exports = {
         
       
         res.status(200).send(randomCompliment);
-    }
+    },
     
 
-}
-module.exports = {
 
-getFortune: (req, res) => {
+
+    getFortune: (req, res) => {
     const fortune = ["Your lucky number is 4", "Great fortune is coming your way", "You will achieve in your goals","A beautiful, smart, and loving person will be coming into your life."];
   
     
