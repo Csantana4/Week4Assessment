@@ -1,69 +1,52 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
-const gymBtn= document.getElementById
-('gym')
-const studyBtn= document.getElementById
-('study')
-const funBtn= document.getElementById
-('fun')
-const gymNum= document.getElementById
-('gym number')
-const studyNum= document.getElementById
-('study number')
-const funNum= document.getElementById
-('fun number')
-
-let errandBtn= document.querySelector('#input-btn')
-
-
-
+const adviceBtn = document.getElementById("adviceButton")
+const affirmationBtn = document.getElementById("affirmationButton")
 const attForm= document.getElementById('attribute-form')
 const attInput= document.getElementById('attribute-input')
 const attList= document.getElementById('attribute-list')
-const generateAtt= (list)=>{
-    attList.innerHTML = ""
-    list.forEach((attribute)=>{
-        let li = document.createElement
-        li.innerText = attributes
-        attList.appendChild(li)
-    })
-}
-let addGym= () =>{
-    let current = +gymNum.textContent
-    gymNum.textContent = current +1
-}
-let addStudy= () =>{
-    let current = +studyNum.textContent
-    studyNum.textContent = current + 2
-}
-
-let addFun= () =>{
-    if(+gymNum.textContent >= 6 && +studyNum.textContent >= 10){
-    gymNum.textContent ='0'
-    studyNum.textContent = '0'
-    let current = +funNum.textContent
-    funNum.textContent= current + 1
-    }else{
-        alert("Need to study and gym first")
-    }
-}
-
+const addAtt= document.getElementById('add-button')
 
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
-    .then(res => {
-        const data = res.data;
-        alert(data);
+        .then(res => {
+            const data = res.data;
+            alert(data);
     });
 };
 const getFortune = () => {
     axios.get("http://localhost:4000/api/fortune/")
-    .then(res => {
-        const data = res.data;
-        alert(data);
+        .then(res => {
+            const data = res.data;
+            alert(data);
     });
 };
+const getAdvice = () => {
+    axios.get("http://localhost:4000/api/advice/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+const getAffirmation = () => {
+    axios.get("http://localhost:4000/api/affirmation/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+const createAtt= body => axios.post("http://localhost:4000/api/attribute", bodyObj)
+.then((res) =>{
+    console.log(res.data)
+    generateAtt(res.data)
+})
+.catch((error)=>{
+    console.error(error)
+})
+
+
+
 
 const handleSubmit= (event) =>{
     event.preventDefault()
@@ -72,53 +55,16 @@ const handleSubmit= (event) =>{
         let bodyObj= {
             newAtt: newAtt
         }
-        axios.post('http://localhost:4000/api/attributes', bodyObj)
-        .then((res) =>{
-            console.log(res.data)
-            generateAtt(res.data)
-        })
-        .catch((error)=>{
-            console.error(error)
-        })
         
         
-    }
-    
-    function addErrand(event){
-        
-    event.preventDefault()
-    let errands = document.createElement('span')
-    let inputFeild = document.querySelector('input')
-    let list = document.querySelector('ul')
-    let errand = document.createElement('li')
-    errands.textContent = inputFeild.value
-    list.append(errand)
-    errand.appendChild(errands)
-    let deleteBtn = document.createElement('button')
-    deleteBtn.textContent = ('x')
-    deleteBtn.addEventListener('click', deleteErrand)
-    errand.appendChild(deleteBtn) 
-    inputFeild.value=''
-}
+    };
 
-document.querySelector('form').addEventListener('submit', addErrand)
-function deleteErrand(event){
-    event.target.parentNode.remove() 
-    message.textContent =('Errand Removed')
-}
-
-
-
-
-
+ 
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-attForm.addEventListener('submit',handleSubmit)
+adviceBtn.addEventListener('click', getAdvice)
+affirmationBtn.addEventListener('click', getAffirmation)
+attForm.addEventListener('click',handleSubmit)
 
-gymBtn.addEventListener('click', addGym)
-studyBtn.addEventListener('click', addStudy)
-funBtn.addEventListener('click', addFun)
-
-errandBtn.addEventListener('click', crossOffErrand)
 
