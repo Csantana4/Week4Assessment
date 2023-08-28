@@ -85,8 +85,6 @@ inputFeild.value=''
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 adviceBtn.addEventListener('click', getAdvice)
-stressBtnBtn.addEventListener('click', getStressRelief)
+stressBtn.addEventListener('click', getStressRelief)
 affirmationBtn.addEventListener('click', getAffirmation)
-myTask.addEventListener('submit',addTask)
-
-
+//myTask.addEventListener('submit',addTask)
