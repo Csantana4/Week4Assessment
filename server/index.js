@@ -10,13 +10,13 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment, getFortune, getAdvice, getAffirmation, addAtt } = require('./controller')
+const { getCompliment, getFortune, getAdvice, getTask} = require('./controller')
 
 app.get("/api/compliment", getCompliment)
 app.get("/api/fortune", getFortune)
 app.get("/api/advice", getAdvice)
-app.get("/api/affirmation", getAffirmation)
-app.post("/api/attribute", addAtt)
+app.post("/api/Task", getTask)
+
 
 
 

@@ -27,20 +27,14 @@ module.exports = {
       
         res.status(200).send(randomAdvice);
     },
-    getAffirmation: (req, res) => {
-        const affirmation = ["I am successful", "I am confident", "I am powerful","I am stong"];
-      
-        
-        let randomMotivation = Math.floor(Math.random() * affirmation.length);
-        let randomAffirm = affirmation[randomMotivation];
-      
-        res.status(200).send(randomAffirm);
-    },
-    addAtt:(req, res)=>{
-        console.log(req.body)
-        attributes.push(req.body.newAtt)
-        res.status(200).send(attributes)
+    getTask: (req, res) => {
+        res.status(200).send(res[0])
     },
     
-    
+    deleteTask: (req, res) => {
+            res.status(200).send(res[0])
+      
+    }
+
 }
+ 

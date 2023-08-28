@@ -2,10 +2,11 @@ const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const adviceBtn = document.getElementById("adviceButton")
 const affirmationBtn = document.getElementById("affirmationButton")
-const attForm= document.getElementById('attribute-form')
-const attInput= document.getElementById('attribute-input')
-const attList= document.getElementById('attribute-list')
-const addAtt= document.getElementById('add-button')
+const myTask =document.getElementById("my-task" )
+let message = document.querySelector('#message')
+let  inputBtn= document.querySelector('#input-btn')
+
+
 
 
 const getCompliment = () => {
@@ -36,28 +37,41 @@ const getAffirmation = () => {
             alert(data);
     });
 };
-const createAtt= body => axios.post("http://localhost:4000/api/attribute", bodyObj)
-.then((res) =>{
-    console.log(res.data)
-    generateAtt(res.data)
-})
-.catch((error)=>{
-    console.error(error)
-})
+const getTask = () => {
+    axios.get('http://localhost:4000/api/getTasks')
+    .then((res) => {
+        console.log(res.data)
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+}
 
+function addTask(event){
 
-
-
-const handleSubmit= (event) =>{
     event.preventDefault()
-    let newAtt= attInput.value
-        console.log(newAtt)
-        let bodyObj= {
-            newAtt: newAtt
-        }
-        
-        
-    };
+    let taskList= document.createElement('span')
+    let inputFeild = document.querySelector('input')
+    let list = document.querySelector('ul')
+let task = document.createElement('li')
+taskList.textContent = inputFeild.value
+list.append(task)
+task.appendChild(taskList)
+let deleteBtn = document.createElement('button')
+deleteBtn.textContent = ('x')
+deleteBtn.addEventListener('click', deleteTask)
+task.appendChild(deleteBtn) 
+inputFeild.value=''
+}
+
+ document.querySelector('form').addEventListener('submit', addTask)
+ function deleteTask(event){
+    event.target.parentNode.remove() 
+    message.textContent =('Task Deleted')
+ }
+
+
+ 
 
  
 
@@ -65,6 +79,6 @@ complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 adviceBtn.addEventListener('click', getAdvice)
 affirmationBtn.addEventListener('click', getAffirmation)
-attForm.addEventListener('click',handleSubmit)
+myTask.addEventListener('submit',addTask)
 
 
