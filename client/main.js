@@ -2,6 +2,7 @@ const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const adviceBtn = document.getElementById("adviceButton")
 const affirmationBtn = document.getElementById("affirmationButton")
+const stressBtn = document.getElementById("stressButton")
 const myTask =document.getElementById("my-task" )
 let message = document.querySelector('#message')
 let  inputBtn= document.querySelector('#input-btn')
@@ -36,8 +37,14 @@ const getAffirmation = () => {
             const data = res.data;
             alert(data);
     });
+const getStressRelief = () => {
+    axios.get("http://localhost:4000/api/stressRelief/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
 };
-const getTask = () => {
+const getTasks = () => {
     axios.get('http://localhost:4000/api/getTasks')
     .then((res) => {
         console.log(res.data)
@@ -78,6 +85,7 @@ inputFeild.value=''
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 adviceBtn.addEventListener('click', getAdvice)
+stressBtnBtn.addEventListener('click', getStressRelief)
 affirmationBtn.addEventListener('click', getAffirmation)
 myTask.addEventListener('submit',addTask)
 

@@ -27,6 +27,24 @@ module.exports = {
       
         res.status(200).send(randomAdvice);
     },
+    getStressRelief: (req, res) => {
+        const stressRelief = ["Hit the gym", "Get enough sleep", "Give yourself time to rest","have a good social and work life balance"];
+      
+        
+        let randomFact = Math.floor(Math.random() * stressRelief.length);
+        let randomTip = stressRelief[randomFact];
+      
+        res.status(200).send(randomTip);
+    },
+    getAdvice: (req, res) => {
+        const advice = ["Sleep Early", "Eat Healthy", "Stay Focused","Don't give up"];
+      
+        
+        let randomHelp = Math.floor(Math.random() * advice.length);
+        let randomAdvice = advice[randomHelp];
+      
+        res.status(200).send(randomAdvice);
+    },
     getTask: (req, res) => {
         res.status(200).send(res[0])
     },
