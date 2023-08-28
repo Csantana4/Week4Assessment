@@ -67,7 +67,7 @@ inputFeild.value=''
  document.querySelector('form').addEventListener('submit', addTask)
  function deleteTask(event){
     event.target.parentNode.remove() 
-    message.textContent =('Task Deleted')
+   
  }
 
 
